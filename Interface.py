@@ -133,6 +133,10 @@ def Password_Vault():
 	# user_id ='8'
 	# MasterPassword = 'Test1234'
 	#======================================
+	def settings_page():
+		window.destroy()
+		Settings_page()
+
 	def copy_user():
 		try:
 		
@@ -193,7 +197,7 @@ def Password_Vault():
 	Profile = Menu(my_menu,tearoff=0)
 	my_menu.add_cascade(label='Pofile',menu =Profile)
 	Profile.add_command(label ='Edit Profile',command = log_out)
-	Profile.add_command(label ='Settings',command = log_out)
+	Profile.add_command(label ='Settings',command = settings_page)
 
 
 	#passwords menu
@@ -227,17 +231,24 @@ def Password_Vault():
 
 #==== Add data to the columns ====
 	#========== #TestData ===============================
-	# user_id ='8'
-	# MasterPassword = 'Test1234'
+	user_id ='8'
+	MasterPassword = 'Test1234'
 #===============================================================
 	global data_to_display
 	data_to_display = Select_user_data(user_id,MasterPassword)
+	option = False
 	#data = [('sitebun.com','celmaiusername','parola_grea')]
+	
 	i = 0
 	for record in data_to_display :
-		data_display_tree.insert(parent = '',index = 'end',iid=i,values = [record[2],record[3],record[4]])
-		i+=1
-	data_display_tree.pack(pady= 10)
+		if option :
+			show_password = record[4]
+		else:
+			show_password = '************'
+
+		data_display_tree.insert(parent = '',index = 'end',iid=i,values = [record[2],record[3],show_password])
+		i=+1
+		data_display_tree.pack(pady= 10)
 
 #=== Adding a frame for copy user and copy password button
 	bottom = Frame(window)
@@ -417,7 +428,6 @@ def Edit_Password(data_selected):
 
 if __name__ == '__main__':
 	Main_Menu()
-
 
 
 window.mainloop()

@@ -41,7 +41,5 @@ def Login(username,pasword):
 
 if __name__ == '__main__':
 
-	username = 'RaresMihai93'
-	password = 'Onestepcloser2'
-	print(Login(username,password))
+	pass
 
