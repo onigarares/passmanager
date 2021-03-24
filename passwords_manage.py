@@ -85,10 +85,5 @@ def strong_password(pas) :
 
 if __name__ == '__main__' :
 
-	# password = 'raresmihai'
 
-	# hashs = b'$2b$12$MyYRz8yLJJCBZZoizsdWdOAhSH.QMhNiIr7hFUHDhkQKkjMryJzMa'
-
-	# print(hash_bcrypt_match(password,hashs))
-
-	print(generate_password())
+	pass
